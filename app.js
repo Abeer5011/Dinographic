@@ -24,6 +24,60 @@ class Dino {
     this.fact = fact
     this.pic = pic
   }
+  dinoInfo() {
+    for (let i = 0; i < dinoArr.length; i++) {
+      if (dietInput === dinoArr[i].diet) {
+        // // Add tiles to DOM
+
+        grid.innerHTML += `
+        <div class="grid-item">
+        <h3>${dinoArr[i].species}</h3>
+        <p>${dinoArr[i].fact} </p>
+        <img src=${dinoArr[i].pic}>
+        </div>
+    `
+      }
+    }
+
+    centerHuman()
+  }
+  weightDino() {
+    for (let i = 0; i < dinoArr.length; i++) {
+      if (weightInput == dinoArr[i].weight) {
+        grid.innerHTML += `
+        <div class="grid-item">
+        <h3>${dinoArr[i].species}</h3>
+        <p>${dinoArr[i].fact} </p>
+         <img src=${dinoArr[i].pic}>
+        </div>
+        `
+      }
+    }
+  }
+  hightDino() {
+    for (let i = 0; i < dinoArr.length; i++) {
+      if (inchesInput == dinoArr[i].height) {
+        grid.innerHTML += `
+        <div class="grid-item">
+        <h3>${dinoArr[i].species}</h3>
+        <p>${dinoArr[i].fact} </p>
+         <img src=${dinoArr[i].pic}>
+        </div> 
+       `
+      }
+    }
+  }
+
+  centerHuman() {
+    const body = `
+    <div class="grid-item">
+    <h3>${nameInput} </h3>
+    <img src=${dinoArr.pic}>
+    </div>
+  `
+
+    grid.innerHTML += body
+  }
 }
 
 // // Create Dino Objects
@@ -172,75 +226,16 @@ button.addEventListener("click", function () {
   formDino.remove()
 
   allDino()
-
-  // dinoInfo()
-  // weightDino()
-  // hightDino()
 })
 
 // // Create Dino Compare Method 1
 // // NOTE: Weight in JSON file is in lbs, height in inches.
-function dinoInfo() {
-  for (let i = 0; i < dinoArr.length; i++) {
-    if (dietInput === dinoArr[i].diet) {
-      // // Add tiles to DOM
-
-      grid.innerHTML += `
-      <div class="grid-item">
-      <h3>${dinoArr[i].species}</h3>
-      <p>${dinoArr[i].fact} </p>
-      <img src=${dinoArr[i].pic}>
-      </div>
-  `
-    }
-  }
-
-  centerHuman()
-}
 
 // // Create Dino Compare Method 2
 // // NOTE: Weight in JSON file is in lbs, height in inches.
 
-function weightDino() {
-  for (let i = 0; i < dinoArr.length; i++) {
-    if (weightInput == dinoArr[i].weight) {
-      grid.innerHTML += `
-      <div class="grid-item">
-      <h3>${dinoArr[i].species}</h3>
-      <p>${dinoArr[i].fact} </p>
-       <img src=${dinoArr[i].pic}>
-      </div>
-      `
-    }
-  }
-}
 // // Create Dino Compare Method 3
 // // NOTE: Weight in JSON file is in lbs, height in inches.
-
-function hightDino() {
-  for (let i = 0; i < dinoArr.length; i++) {
-    if (inchesInput == dinoArr[i].height) {
-      grid.innerHTML += `
-      <div class="grid-item">
-      <h3>${dinoArr[i].species}</h3>
-      <p>${dinoArr[i].fact} </p>
-       <img src=${dinoArr[i].pic}>
-      </div> 
-     `
-    }
-  }
-}
-
-function centerHuman() {
-  const body = `
-  <div class="grid-item">
-  <h3>${nameInput} </h3>
-  <img src=${dinoArr.pic}>
-  </div>
-`
-
-  grid.innerHTML += body
-}
 
 function allDino() {
   let randomFact
